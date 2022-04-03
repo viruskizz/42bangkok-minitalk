@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araiva <tsomsa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tsomsa <tsomsa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/03 14:22:41 by araiva            #+#    #+#             */
-/*   Updated: 2022/04/03 14:22:43 by araiva           ###   ########.fr       */
+/*   Created: 2022/02/22 21:59:33 by tsomsa            #+#    #+#             */
+/*   Updated: 2022/02/22 21:59:34 by tsomsa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef MINITALK_H
-# define MINITALK_H
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include <signal.h>
-
-typedef struct s_talk
+int	ft_tolower(int c)
 {
-	char	*str;
-	int		byte;
-	int		index;
-}	t_talk;
-
-# define LBYTE 8
-
-#endif
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	else
+		return (c);
+}

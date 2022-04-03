@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   my_bitv.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: araiva <tsomsa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/03 14:22:41 by araiva            #+#    #+#             */
-/*   Updated: 2022/04/03 14:22:43 by araiva           ###   ########.fr       */
+/*   Created: 2022/04/03 14:49:35 by araiva            #+#    #+#             */
+/*   Updated: 2022/04/03 14:49:36 by araiva           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef MINITALK_H
-# define MINITALK_H
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include <signal.h>
-
-typedef struct s_talk
+int	my_bitv(int pos)
 {
-	char	*str;
-	int		byte;
-	int		index;
-}	t_talk;
 
-# define LBYTE 8
+	int		sum;
 
-#endif
+	sum = 1;
+	if (pos == 0)
+		return (sum);
+	while (pos-- > 0)
+		sum = sum * 2;
+	return (sum);
+}

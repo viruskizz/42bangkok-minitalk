@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: araiva <tsomsa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/03 14:22:41 by araiva            #+#    #+#             */
-/*   Updated: 2022/04/03 14:22:43 by araiva           ###   ########.fr       */
+/*   Created: 2022/03/21 23:16:23 by araiva            #+#    #+#             */
+/*   Updated: 2022/03/21 23:16:25 by araiva           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef MINITALK_H
-# define MINITALK_H
 
+#include "libft.h"
 #include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include <signal.h>
 
-typedef struct s_talk
+int main(void)
 {
-	char	*str;
-	int		byte;
-	int		index;
-}	t_talk;
-
-# define LBYTE 8
-
-#endif
+    printf("split: %s\n", ft_split("dsss, sss", ',')[0]);
+    return (0);
+}

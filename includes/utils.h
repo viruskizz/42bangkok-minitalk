@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: araiva <tsomsa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/03 14:22:41 by araiva            #+#    #+#             */
-/*   Updated: 2022/04/03 14:22:43 by araiva           ###   ########.fr       */
+/*   Created: 2022/04/03 14:25:36 by araiva            #+#    #+#             */
+/*   Updated: 2022/04/03 14:25:37 by araiva           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef MINITALK_H
-# define MINITALK_H
+#ifndef UTILS_H
+# define UTILS_H
 
-#include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include <sys/types.h>
-#include <signal.h>
 
-typedef struct s_talk
-{
-	char	*str;
-	int		byte;
-	int		index;
-}	t_talk;
-
-# define LBYTE 8
+void	ft_putchar(char c);
+void	ft_putstr(char *s);
+void	ft_putnbr(int n);
+int		ft_atoi(const char *nb);
+void	*ft_calloc(size_t n, size_t size);
+void	ft_bzero(void *s, size_t n);
+int		my_bitv(int pos);
 
 #endif

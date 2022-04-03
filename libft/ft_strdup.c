@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araiva <tsomsa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tsomsa <tsomsa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/03 14:22:41 by araiva            #+#    #+#             */
-/*   Updated: 2022/04/03 14:22:43 by araiva           ###   ########.fr       */
+/*   Created: 2022/02/22 22:11:23 by tsomsa            #+#    #+#             */
+/*   Updated: 2022/02/22 22:11:24 by tsomsa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef MINITALK_H
-# define MINITALK_H
 
-#include <stdio.h>
-#include <unistd.h>
 #include <stdlib.h>
-#include <sys/types.h>
-#include <signal.h>
+#include "libft.h"
 
-typedef struct s_talk
+char	*ft_strdup(const char *str)
 {
-	char	*str;
-	int		byte;
-	int		index;
-}	t_talk;
+	char	*dup;
+	int		i;
 
-# define LBYTE 8
-
-#endif
+	i = 0;
+	dup = malloc(sizeof(char) * ft_strlen(str) + 1);
+	if (*str == '\0')
+		dup[0] = '\0';
+	while (str[i])
+	{
+		dup[i] = str[i];
+		i++;
+	}
+	dup[i] = '\0';
+	return (dup);
+}

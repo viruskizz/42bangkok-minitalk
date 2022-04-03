@@ -1,10 +1,10 @@
 #include "minitalk.h"
-#include "libs/libft.h"
+#include "utils.h"
 
 void  SIGINT_handler(int);
 void  SIGQUIT_handler(int);
 
-t_talk	talk;
+t_talk	t;
 
 void	handler(int signum, siginfo_t *info, void *context)
 {
@@ -16,21 +16,19 @@ void	handler(int signum, siginfo_t *info, void *context)
 		bit = 1;
 	if (signum == SIGUSR2)
 	{
-		if (!talk.byte)
-			talk.byte = 2;
-		else
-			talk.byte *= 2;
+		t.byte += my_bitv(LBYTE - t.index - 1);
 	}
-	talk.index++;
-	printf("%d[%d] , \n", bit, talk.byte);
-	ft_putnbr_fd(bit, 1);
-	if (talk.index == LBYTE)
+	t.index++;
+	// ft_putnbr(bit);
+	if (t.index == LBYTE)
 	{
-		// ft_putchar_fd('\t');
-		// ft_putnbr_fd(talk.byte, 1);
-		// ft_putchar_fd(talk.byte, 1);
-		talk.index = 0;
-		talk.byte = 0;
+		ft_putchar('\t');
+		ft_putnbr(t.byte);
+		ft_putchar('\t');
+		ft_putchar(t.byte);
+		ft_putchar('\n');
+		t.index = 0;
+		t.byte = 0;
 	}
 }
 
@@ -41,10 +39,10 @@ int	main(int argc, char *argv[])
 
 	if (!pid)
 	{
-		talk.index = 0;
-		talk.str = ft_calloc(sizeof(char), 1);
-		talk.str[0] = 0;
-		talk.byte = 0;
+		t.index = 0;
+		t.str = ft_calloc(sizeof(char), 1);
+		t.str[0] = 0;
+		t.byte = 0;
 	}
 	pid = getpid();
 	if (signal(SIGINT, SIGINT_handler) == SIG_ERR) {
@@ -54,13 +52,11 @@ int	main(int argc, char *argv[])
 		exit(0);
 	}
 	printf("Server [%d]: \n", pid);
-	// action.sa_handler = handler;
 	action.sa_sigaction = handler;
-	// action.sa_flags = SA_SIGINFO;
+	sigemptyset(&action.sa_mask);
+	action.sa_flags = SA_RESTART;
 	sigaction (SIGUSR1, &action, NULL);
 	sigaction (SIGUSR2, &action, NULL);
-	// signal(SIGUSR1, handler);
-	// signal(SIGUSR2, handler);
 	while(1)
 		pause();
 	return (0);
@@ -71,6 +67,7 @@ void  SIGINT_handler(int sig)
 	signal(sig, SIG_IGN);
 	printf("From SIGINT: just got a %d (SIGINT ^C) signal\n", sig);
 	signal(sig, SIGINT_handler);
+	exit(3);
 }
 
 void  SIGQUIT_handler(int sig)
