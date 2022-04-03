@@ -1,28 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   client.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: araiva <tsomsa@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/03 18:02:55 by araiva            #+#    #+#             */
+/*   Updated: 2022/04/03 18:02:56 by araiva           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "minitalk.h"
 #include "utils.h"
 
 void	send_binary(int pid, char c);
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
-	pid_t 	pid;
+	pid_t	pid;
 	char	*str;
 
 	if (argc < 3)
-	{
-		printf("NEED 2 argc: pid and text\n");
 		exit(0);
-	}
-
 	pid = ft_atoi(argv[1]);
 	str = argv[2];
 	printf("ID: %d\n", pid);
-	if (pid  > 0)
+	if (pid > 0)
 	{
 		while (*str)
 			send_binary(pid, *str++);
 	}
-	return 0;
+	return (0);
 }
 
 void	send_binary(int pid, char c)
