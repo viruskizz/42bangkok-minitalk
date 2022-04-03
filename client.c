@@ -28,20 +28,17 @@ int main(int argc, char *argv[])
 void	send_binary(int pid, char c)
 {
 	int		i;
-	int		bit;
 
-	i = 7;
-	printf("\t %c:[%d]", c, c);
+	i = LBYTE - 1;
+	// printf("\t %c:[%d]", c, c);
 	while (i >= 0)
 	{
-		bit = (c & (1 << i));
-		ft_putnbr(!bit);
-		if (!bit)
+		// ft_putnbr(!(c & (1 << i)));
+		if (!(c & (1 << i--)))
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		i--;
 		usleep(500);
 	}
-	printf("\n");
+	// printf("\n");
 }
