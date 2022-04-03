@@ -17,6 +17,7 @@ void	handler(int signum, siginfo_t *info, void *context);
 
 t_talk	g_t;
 
+// maximun usleep 1250us
 int	main(int argc, char *argv[])
 {
 	struct sigaction	action;
@@ -27,7 +28,7 @@ int	main(int argc, char *argv[])
 		exit(0);
 	pid = ft_atoi(argv[1]);
 	str = argv[2];
-	ft_putstr_fd("ID: ", 1);
+	ft_putstr_fd("CLIENT: ", 1);
 	ft_putnbr_fd(pid, 1);
 	ft_putchar_fd('\n', 1);
 	action.sa_sigaction = handler;
@@ -58,15 +59,17 @@ void	send_binary(int pid, char c)
 			if (kill(pid, SIGUSR2) == -1)
 				exit(1);
 		}
-		usleep(1000);
+		usleep(500);
 	}
 }
 
 void	handler(int signum, siginfo_t *info, void *context)
 {
+	(void)info;
+	(void)context;
 	if (signum == SIGUSR1)
 		write(2, "0", 1);
 	else
 		write(2, "1", 1);
-	usleep(1000);
+	usleep(500);
 }

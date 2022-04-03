@@ -1,3 +1,4 @@
+NAME		= minitalk
 SVR_NAME	= server.out
 CNT_NAME	= client.out
 CC			= gcc
@@ -5,51 +6,41 @@ CFLAGS		= -Wall -Wextra -Werror
 RM 			= /bin/rm -f
 
 INCS_DIR	= ./includes
-LIBFT_DIR	= ./libft
-LIBFT		= $(LIBFT_DIR)/libft.a
+IFLAGS		= -I $(INCS_DIR)
 
-IFLAGS		= -I $(INCS_DIR) -I $(LIBFT_DIR)
-LFLAGS		= -L libft -lft
-
-SRV_SRCS	= server.c
+SVR_SRCS	= server.c
 CNT_SRCS	= client.c
+UTILS_SRCS	= utils/ft_atoi.c \
+			  utils/ft_bzero.c \
+			  utils/ft_calloc.c \
+			  utils/ft_putchar_fd.c \
+			  utils/ft_putnbr_fd.c \
+			  utils/ft_putstr_fd.c \
+			  utils/my_bitv.c
 
 all: $(NAME)
 
+$(NAME): server client
+
 server:
-	@make -C $(LIBFT_DIR)
-	@$(CC) $(CFLAGS) $(SRV_SRCS) $(IFLAGS) $(LFLAGS) -o $(SRV_NAME)
+	@$(CC) $(CFLAGS) $(UTILS_SRCS) $(SVR_SRCS) $(IFLAGS) -o $(SVR_NAME)
 
 client:
-	@make -C $(LIBFT_DIR)
-	@$(CC) $(CFLAGS) $(CNT_SRCS) $(IFLAGS) $(LFLAGS) -o $(CNT_NAME)
-
-$(LIBFT):
-	make -C $(LIBFT_DIR)
-	cp $(LIBFT) $(NAME)
-
-bonus: all
+	@$(CC) $(CFLAGS) $(UTILS_SRCS) $(CNT_SRCS) $(IFLAGS) -o $(CNT_NAME)
 
 clean:
-	make clean -C $(LIBFT_DIR)
-	$(RM) -r $(BUILD_DIR)
+	$(RM) $(SVR_NAME)
+	$(RM) $(CNT_NAME)
 
 fclean: clean
-	make fclean -C $(LIBFT_DIR)
-	$(RM) $(NAME)
 
 re: fclean all
+
+bonus: all
 
 rebonus: fclean bonus
 
 test: re
-	@$(CC) main.c -lftprintf -L . -I $(INCS_DIR) -o runner.out
-	@echo "\033[0;32m=== RUNNER ===\033[0m"
-	@./runner.out
-
-testmem: re
-	@$(CC) $(CFLAGS) main.c -lftprintf -L . -I $(INCS_DIR) -o runner.out
-	@echo "\033[0;32m=== RUNNER ===\033[0m"
-	@valgrind -q --leak-check=full --track-origins=yes ./runner.out
+	@valgrind -q --leak-check=full --track-origins=yes ./$(CNT_NAME) $(pid) "$(text)"
 	
 .PHONY: all clean fclean re

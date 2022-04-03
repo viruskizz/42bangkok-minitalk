@@ -16,13 +16,15 @@ void	handler(int signum, siginfo_t *info, void *context);
 
 t_talk	g_t;
 
-int	main(int argc, char *argv[])
+int	main(void)
 {
 	struct sigaction	action;
 	pid_t				pid;
 
 	pid = getpid();
-	printf("Server [%d]: \n", pid);
+	ft_putstr_fd("SERVER: ", 1);
+	ft_putnbr_fd(pid, 1);
+	ft_putchar_fd('\n', 1);
 	action.sa_sigaction = handler;
 	sigemptyset(&action.sa_mask);
 	action.sa_flags = SA_SIGINFO;
@@ -35,9 +37,10 @@ int	main(int argc, char *argv[])
 
 void	handler(int signum, siginfo_t *info, void *context)
 {
-	int		bit;
 	char	c;
 
+	(void)info;
+	(void)context;
 	if (signum == SIGUSR2)
 		g_t.byte += my_bitv(LBYTE - g_t.cidx - 1);
 	g_t.cidx++;
