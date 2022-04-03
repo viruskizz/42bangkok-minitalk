@@ -12,7 +12,6 @@
 
 int	my_bitv(int pos)
 {
-
 	int		sum;
 
 	sum = 1;

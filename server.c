@@ -18,14 +18,14 @@ t_talk	g_t;
 
 int	main(int argc, char *argv[])
 {
-	pid_t				pid;
 	struct sigaction	action;
+	pid_t				pid;
 
 	pid = getpid();
 	printf("Server [%d]: \n", pid);
 	action.sa_sigaction = handler;
 	sigemptyset(&action.sa_mask);
-	action.sa_flags = SA_RESTART;
+	action.sa_flags = SA_SIGINFO;
 	sigaction (SIGUSR1, &action, NULL);
 	sigaction (SIGUSR2, &action, NULL);
 	while (1)
@@ -38,11 +38,8 @@ void	handler(int signum, siginfo_t *info, void *context)
 	int		bit;
 	char	c;
 
-	if (signum == SIGUSR1)
-		bit = 0;
-	else
-		bit = 1;
-	g_t.byte += bit * my_bitv(LBYTE - g_t.cidx - 1);
+	if (signum == SIGUSR2)
+		g_t.byte += my_bitv(LBYTE - g_t.cidx - 1);
 	g_t.cidx++;
 	if (g_t.cidx == LBYTE)
 	{
@@ -51,7 +48,7 @@ void	handler(int signum, siginfo_t *info, void *context)
 		g_t.cidx = 0;
 		g_t.byte = 0;
 	}
-	if (!bit)
+	if (signum == SIGUSR1)
 		kill(info->si_pid, SIGUSR1);
 	else
 		kill(info->si_pid, SIGUSR2);

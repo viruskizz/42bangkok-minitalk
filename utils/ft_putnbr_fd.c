@@ -9,8 +9,7 @@
 /*   Updated: 2022/02/24 22:06:56 by tsomsa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
+#include "utils.h"
 
 static	int		my_write_nbr(int n, int fd);
 

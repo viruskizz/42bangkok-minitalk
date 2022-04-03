@@ -1,20 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: araiva <tsomsa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tsomsa <tsomsa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/21 23:16:23 by araiva            #+#    #+#             */
-/*   Updated: 2022/03/21 23:16:25 by araiva           ###   ########.fr       */
+/*   Created: 2022/02/24 21:48:00 by tsomsa            #+#    #+#             */
+/*   Updated: 2022/02/24 21:48:03 by tsomsa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "utils.h"
 
-#include "libft.h"
-#include <stdio.h>
-
-int main(void)
+void	ft_putchar_fd(char c, int fd)
 {
-    printf("split: %s\n", ft_split("dsss, sss", ',')[0]);
-    return (0);
+	write(fd, &c, 1);
 }
