@@ -20,9 +20,8 @@
 
 typedef struct s_talk
 {
-	char	*str;
 	int		byte;
-	int		index;
+	int		cidx;
 }	t_talk;
 
 # define LBYTE 8

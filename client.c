@@ -30,15 +30,12 @@ void	send_binary(int pid, char c)
 	int		i;
 
 	i = LBYTE - 1;
-	// printf("\t %c:[%d]", c, c);
 	while (i >= 0)
 	{
-		// ft_putnbr(!(c & (1 << i)));
 		if (!(c & (1 << i--)))
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		usleep(500);
+		usleep(100);
 	}
-	// printf("\n");
 }
