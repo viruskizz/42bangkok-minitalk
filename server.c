@@ -25,7 +25,7 @@ int	main(int argc, char *argv[])
 	printf("Server [%d]: \n", pid);
 	action.sa_sigaction = handler;
 	sigemptyset(&action.sa_mask);
-	action.sa_flags = SA_SIGINFO;
+	action.sa_flags = SA_RESTART;
 	sigaction (SIGUSR1, &action, NULL);
 	sigaction (SIGUSR2, &action, NULL);
 	while (1)
@@ -36,6 +36,7 @@ int	main(int argc, char *argv[])
 void	handler(int signum, siginfo_t *info, void *context)
 {
 	int		bit;
+	char	c;
 
 	if (signum == SIGUSR1)
 		bit = 0;
@@ -45,12 +46,13 @@ void	handler(int signum, siginfo_t *info, void *context)
 	g_t.cidx++;
 	if (g_t.cidx == LBYTE)
 	{
-		ft_putchar(g_t.byte);
+		c = (char) g_t.byte;
+		write(1, &c, 1);
 		g_t.cidx = 0;
 		g_t.byte = 0;
 	}
-	// if (signum == SIGUSR1)
-	// 	kill(info->si_pid, SIGUSR1);
-	// else
-	// 	kill(info->si_pid, SIGUSR2);
+	if (!bit)
+		kill(info->si_pid, SIGUSR1);
+	else
+		kill(info->si_pid, SIGUSR2);
 }
