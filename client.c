@@ -27,8 +27,6 @@ int	main(int argc, char *argv[])
 		exit(0);
 	pid = ft_atoi(argv[1]);
 	str = argv[2];
-	g_t.byte = 0;
-	g_t.cidx = 0;
 	ft_putstr_fd("ID: ", 1);
 	ft_putnbr_fd(pid, 1);
 	ft_putchar_fd('\n', 1);
@@ -47,7 +45,7 @@ void	send_binary(int pid, char c)
 {
 	int		i;
 
-	i = 7;
+	i = LBYTE - 1;
 	while (i >= 0)
 	{
 		if (!(c & (1 << i--)))
