@@ -1,4 +1,8 @@
-# Minitalk in Nutshell
+<div align=center>
+	<img src="assets/linuxkill.jpg" width=80% />
+</div>
+
+# Minitalk in Nutshell 📡
 
 ## 42Bangkok Curcus minitalk project
 
@@ -186,6 +190,9 @@ int	main ()
 
 _กรณีอยากใช้สัญญาณเฉพาะของตนเอง ต้องใช้ประเภท `SIGUSR1` และ `SIGUSR2` ซึ่งมีแค่ 2 ประเภทเท่านั้น_
 
+### Usaged function
+- [mlanca Github](https://github.com/mlanca-c/Minitalk/wiki/Used-Functions)
+
 ---
 
 ## Example
@@ -214,9 +221,7 @@ sh run.sh client 1234 ABC
 
 ## AT LAST
 
-~~ เท่านี้เราก็สามารถพูดคุยกันระหว่างโปรแกรมได้แล้ว **MINITALK!!!** ~~
-
----
+📡 ~~ เท่านี้เราก็สามารถพูดคุยกันระหว่างโปรแกรมได้แล้ว **MINITALK!!!** ~~ 🚀
 
 
 [Task Manager]: https://www.howtogeek.com/405806/windows-task-manager-the-complete-guide/
