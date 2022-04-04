@@ -4,6 +4,13 @@
 </div> -->
 # 42cursus - minitalk
 
+>
+> This project is learn about linux signal communicate programe and compuster process id
+> you can learn these subject in example section (Thai version)
+>
+> <a href="exmaple">Minitalk in Nutshell</a>
+>
+
 ## Project Information
 
 ### About
@@ -16,10 +23,6 @@ The purpose of this project is to code a small data exchange program using *UNIX
 - client recieve signal and write 0 or 1
 - 40 microsecond for English character
 - 50 microsecond for UTF-8
-
-> this project is learn about linux signal communicate programe and compuster process id
-> you can learn these subject in example section (Thai version)
-> <a href="exmaple">Minitalk in Nutshell</a>
 
 ### Mandatory
 
