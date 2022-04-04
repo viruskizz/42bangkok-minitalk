@@ -4,8 +4,6 @@
 </div> -->
 # 42cursus - minitalk
 
-## Project Information
-
 >
 > This project is learn about linux signal communicate programe and compuster process id
 > you can learn these subject in example section (Thai version)
@@ -13,11 +11,11 @@
 > <a href="exmaple">Minitalk in Nutshell</a>
 >
 
-### About
+## Project Information
 
 The purpose of this project is to code a small data exchange program using *UNIX signals*.
 
-#### My Features
+### My Features
 
 - server convert bit signal to byte
 - client recieve signal and write 0 or 1
