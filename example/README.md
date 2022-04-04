@@ -1,10 +1,10 @@
+
 <div align=center>
+	<h1>Minitalk in Nutshell</h1>
 	<img src="assets/linuxkill.jpg" width=80% />
 </div>
 
-# Minitalk in Nutshell 📡
-
-## 42Bangkok Curcus minitalk project
+## 42Bangkok Curcus minitalk project 📡
 
 Explain linux signal process in c in short and easy
 >
