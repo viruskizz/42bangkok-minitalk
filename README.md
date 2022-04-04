@@ -4,14 +4,14 @@
 </div> -->
 # 42cursus - minitalk
 
+## Project Information
+
 >
 > This project is learn about linux signal communicate programe and compuster process id
 > you can learn these subject in example section (Thai version)
 >
 > <a href="exmaple">Minitalk in Nutshell</a>
 >
-
-## Project Information
 
 ### About
 
