@@ -74,6 +74,12 @@ make
 ./client.out 1234 ABCD
 ```
 
+5. run `client` with test file
+
+```sh
+./client.out 1234 "$(cat test/eng.txt)"
+```
+
 ## Credit
 
 README template

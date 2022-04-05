@@ -1,6 +1,6 @@
 NAME		= minitalk
-SVR_NAME	= server.out
-CNT_NAME	= client.out
+SVR_NAME	= server
+CNT_NAME	= client
 CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror
 RM 			= /bin/rm -f
