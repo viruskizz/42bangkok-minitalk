@@ -65,19 +65,19 @@ make
 3. start `server`
 
 ```sh
-./server.out
+./server
 ```
 
 4. run `client` with additional arguments `ppid` and `text`
 
 ```sh
-./client.out 1234 ABCD
+./client 1234 ABCD
 ```
 
 5. run `client` with test file
 
 ```sh
-./client.out 1234 "$(cat test/eng.txt)"
+./client 1234 "$(cat test/eng.txt)"
 ```
 
 ## Credit
