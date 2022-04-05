@@ -8,7 +8,7 @@
 > This project is learn about linux signal communicate programe and compuster process id
 > you can learn these subject in example section (Thai version)
 >
-> <a href="exmaple">Minitalk in Nutshell</a>
+> <a href="https://github.com/viruskizz/42bangkok-minitalk/tree/main/example">Minitalk in Nutshell</a>
 >
 
 ## Project Information
